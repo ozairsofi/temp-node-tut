@@ -5,15 +5,20 @@ const server = http.createServer((req, res) => {
         res.end('Welcome to our home page')
     }
 
-    if (req.url === '/about') {
+    else if (req.url === '/about') {
         res.end('This is our short history')
     }
-    res.end(
-        `
+    else {
+        res.end(`
         <h1>OOPs!</h1>
         <p>we cant seem to find the page</p>
         <a href="/">Back Home</a>
         `)
+    }
 })
 
-server.listen(5000)
+server.listen(5000, () => {
+    console.log('Server Listening on port 5000....')
+})
+
+// Analyze the code and find the error
